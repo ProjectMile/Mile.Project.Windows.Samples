@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.x86.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.x64.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.ARM64.props" />
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{682D7436-7CCB-48B0-8AEB-F98E3939A1B9}</ProjectGuid>
+    <RootNamespace>Mile.Samples.ConsoleApplication</RootNamespace>
+    <MileProjectType>ConsoleApplication</MileProjectType>
+    <MileProjectManifestFile>Mile.Samples.ConsoleApplication.manifest</MileProjectManifestFile>
+    <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
+    <MileProjectUseProjectProperties>true</MileProjectUseProjectProperties>
+    <MileProjectCompanyName>Project Mile</MileProjectCompanyName>
+    <MileProjectFileDescription>Mile.Samples.ConsoleApplication</MileProjectFileDescription>
+    <MileProjectInternalName>Mile.Samples.ConsoleApplication</MileProjectInternalName>
+    <MileProjectLegalCopyright>© Project Mile. All rights reserved.</MileProjectLegalCopyright>
+    <MileProjectOriginalFilename>Mile.Samples.ConsoleApplication.exe</MileProjectOriginalFilename>
+    <MileProjectProductName>Mile.Samples.ConsoleApplication</MileProjectProductName>
+    <MileProjectVersion>1.0.0.0</MileProjectVersion>
+    <MileProjectVersionTag Condition="false">Alpha 1</MileProjectVersionTag>
+  </PropertyGroup>
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.Default.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
+  <ItemGroup>
+    <ClCompile Include="Mile.Samples.ConsoleApplication.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="Mile.Samples.ConsoleApplication.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Mile.Windows.Helpers">
+      <Version>1.0.11</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.targets" />
+</Project>
