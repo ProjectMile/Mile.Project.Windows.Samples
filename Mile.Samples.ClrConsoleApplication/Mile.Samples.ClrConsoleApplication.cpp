@@ -15,13 +15,13 @@ int main(array<System::String^>^ args)
     args;
 
     Console::WriteLine(
-        "Mile.Samples.ClrConsoleApplication");
+        L"Mile.Samples.ClrConsoleApplication");
     Console::WriteLine(
-        "================================================================");
+        L"================================================================");
     Console::WriteLine(
-        "他喵的 MSVC 2019 工具集坑了我们价值百万美刀的项目！");
+        L"他喵的 MSVC 2019 工具集坑了我们价值百万美刀的项目！");
     Console::WriteLine(
-        "The F@cking MSVC 2019 toolset ruined our $1M project!");
+        L"The F@cking MSVC 2019 toolset ruined our $1M project!");
 
     return 0;
 }
