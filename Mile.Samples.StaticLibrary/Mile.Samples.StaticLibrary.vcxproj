@@ -7,16 +7,12 @@
     <ProjectGuid>{D7A206A8-0825-4E30-8C28-6DCB817917E0}</ProjectGuid>
     <RootNamespace>Mile.Samples.StaticLibrary</RootNamespace>
     <MileProjectType>StaticLibrary</MileProjectType>
-    <MileProjectManifestFile>Mile.Samples.StaticLibrary.manifest</MileProjectManifestFile>
     <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
   </PropertyGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.Default.props" />
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
   <ItemGroup>
     <ClCompile Include="Mile.Samples.StaticLibrary.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Manifest Include="Mile.Samples.StaticLibrary.manifest" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Mile.Windows.Helpers">
