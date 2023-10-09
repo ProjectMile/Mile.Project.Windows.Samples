@@ -1,0 +1,69 @@
+﻿;
+; Mile.Samples.UMDFDriver.inf
+;
+
+[Version]
+Signature   ="$Windows NT$"
+Class       =System
+ClassGuid   ={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    =%ManufacturerName%
+CatalogFile =Mile.Samples.UMDFDriver.cat
+DriverVer   = 
+PnpLockdown =1
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%DeviceName%=MyDevice_Install, Root\Mile.Samples.UMDFDriver
+
+[SourceDisksFiles]
+Mile.Samples.UMDFDriver.dll=1
+
+[SourceDisksNames]
+1 = %DiskName%
+
+; =================== UMDF Device ==================================
+
+[MyDevice_Install.NT]
+CopyFiles=UMDriverCopy
+
+[MyDevice_Install.NT.hw]
+
+[MyDevice_Install.NT.Services]
+AddService=WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[MyDevice_Install.NT.CoInstallers]
+AddReg=CoInstallers_AddReg
+
+[MyDevice_Install.NT.Wdf]
+UmdfService=Mile.Samples.UMDFDriver,Mile.Samples.UMDFDriver_Install
+UmdfServiceOrder=Mile.Samples.UMDFDriver
+
+[Mile.Samples.UMDFDriver_Install]
+UmdfLibraryVersion=$UMDFVERSION$ 
+ServiceBinary=%12%\UMDF\Mile.Samples.UMDFDriver.dll
+
+[WUDFRD_ServiceInstall]
+DisplayName = %WudfRdDisplayName%
+ServiceType = 1
+StartType = 3
+ErrorControl = 1
+ServiceBinary = %12%\WUDFRd.sys
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WUDFCoinstaller.dll"
+
+[DestinationDirs]
+UMDriverCopy=12,UMDF ; copy to drivers\umdf
+
+[UMDriverCopy]
+Mile.Samples.UMDFDriver.dll
+
+; =================== Generic ==================================
+
+[Strings]
+ManufacturerName    = "Mile"
+DiskName            = "Mile.Samples.UMDFDriver Installation Disk"
+WudfRdDisplayName   = "Windows Driver Foundation - User-mode Driver Framework Reflector"
+DeviceName          = "Mile.Samples.UMDFDriver Device"
