@@ -1,0 +1,77 @@
+﻿;
+; Mile.Samples.KMDFDriver.inf
+;
+
+[Version]
+Signature   ="$WINDOWS NT$"
+Class       =System
+ClassGuid   ={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    =%ManufacturerName%
+CatalogFile =Mile.Samples.KMDFDriver.cat
+DriverVer   =
+PnpLockdown =1
+
+[DestinationDirs]
+DefaultDestDir = 12
+Mile.Samples.KMDFDriver_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Mile.Samples.KMDFDriver.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%Mile.Samples.KMDFDriver.DeviceDesc%=Mile.Samples.KMDFDriver_Device, Root\Mile.Samples.KMDFDriver
+
+[Mile.Samples.KMDFDriver_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+Mile.Samples.KMDFDriver.sys
+
+;-------------- Service installation
+[Mile.Samples.KMDFDriver_Device.NT.Services]
+AddService = Mile.Samples.KMDFDriver,%SPSVCINST_ASSOCSERVICE%, Mile.Samples.KMDFDriver_Service_Inst
+
+; -------------- Mile.Samples.KMDFDriver driver install sections
+[Mile.Samples.KMDFDriver_Service_Inst]
+DisplayName    = %Mile.Samples.KMDFDriver.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\Mile.Samples.KMDFDriver.sys
+
+;
+;--- Mile.Samples.KMDFDriver_Device Coinstaller installation ------
+;
+
+[Mile.Samples.KMDFDriver_Device.NT.CoInstallers]
+AddReg=Mile.Samples.KMDFDriver_Device_CoInstaller_AddReg
+CopyFiles=Mile.Samples.KMDFDriver_Device_CoInstaller_CopyFiles
+
+[Mile.Samples.KMDFDriver_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[Mile.Samples.KMDFDriver_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[Mile.Samples.KMDFDriver_Device.NT.Wdf]
+KmdfService =  Mile.Samples.KMDFDriver, Mile.Samples.KMDFDriver_wdfsect
+[Mile.Samples.KMDFDriver_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE              = 0x00000002
+ManufacturerName                    ="Mile"
+DiskName                            = "Mile.Samples.KMDFDriver Installation Disk"
+Mile.Samples.KMDFDriver.DeviceDesc  = "Mile.Samples.KMDFDriver Device"
+Mile.Samples.KMDFDriver.SVCDESC     = "Mile.Samples.KMDFDriver Service"
