@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mile.Samples.ClrConsoleApplication
- * FILE:      Mile.Samples.ClrConsoleApplication.cpp
- * PURPOSE:   Implementation for Mile.Samples.ClrConsoleApplication
+ * PROJECT:    Mile.Samples.ClrConsoleApplication
+ * FILE:       Mile.Samples.ClrConsoleApplication.cpp
+ * PURPOSE:    Implementation for Mile.Samples.ClrConsoleApplication
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

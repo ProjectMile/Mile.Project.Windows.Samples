@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mile.Samples.WindowsApplication
- * FILE:      Mile.Samples.WindowsApplication.cpp
- * PURPOSE:   Implementation for Mile.Samples.WindowsApplication
+ * PROJECT:    Mile.Samples.WindowsApplication
+ * FILE:       Mile.Samples.WindowsApplication.cpp
+ * PURPOSE:    Implementation for Mile.Samples.WindowsApplication
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

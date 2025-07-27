@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mile.Samples.DynamicLibrary
- * FILE:      Mile.Samples.DynamicLibrary.cpp
- * PURPOSE:   Implementation for Mile.Samples.DynamicLibrary
+ * PROJECT:    Mile.Samples.DynamicLibrary
+ * FILE:       Mile.Samples.DynamicLibrary.cpp
+ * PURPOSE:    Implementation for Mile.Samples.DynamicLibrary
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

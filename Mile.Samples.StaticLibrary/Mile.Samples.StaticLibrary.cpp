@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mile.Samples.StaticLibrary
- * FILE:      Mile.Samples.StaticLibrary.cpp
- * PURPOSE:   Implementation for Mile.Samples.StaticLibrary
+ * PROJECT:    Mile.Samples.StaticLibrary
+ * FILE:       Mile.Samples.StaticLibrary.cpp
+ * PURPOSE:    Implementation for Mile.Samples.StaticLibrary
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mile.Samples.StaticLibraryForDriver
- * FILE:      Mile.Samples.StaticLibraryForDriver.cpp
- * PURPOSE:   Implementation for Mile.Samples.StaticLibraryForDriver
+ * PROJECT:    Mile.Samples.StaticLibraryForDriver
+ * FILE:       Mile.Samples.StaticLibraryForDriver.cpp
+ * PURPOSE:    Implementation for Mile.Samples.StaticLibraryForDriver
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

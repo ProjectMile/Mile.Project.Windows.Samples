@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mile.Samples.WDMDriver
- * FILE:      Mile.Samples.WDMDriver.cpp
- * PURPOSE:   Implementation for Mile.Samples.WDMDriver
+ * PROJECT:    Mile.Samples.WDMDriver
+ * FILE:       Mile.Samples.WDMDriver.cpp
+ * PURPOSE:    Implementation for Mile.Samples.WDMDriver
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */
