@@ -7,10 +7,10 @@
     <MileProjectUseKernelMode>true</MileProjectUseKernelMode>
     <MileProjectUseWindowsDriverKit>true</MileProjectUseWindowsDriverKit>
   </PropertyGroup>
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Platform.x64.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Platform.ARM64.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Cpp.Default.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Cpp.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Platform.x64.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Platform.ARM64.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.Default.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.props" />
   <PropertyGroup Label="Globals">
     <!--TODO: -->
     <OutDir>$(MileProjectBinariesPath)$(Configuration)\$(Platform)\</OutDir>
@@ -20,5 +20,5 @@
   <ItemGroup>
     <ClCompile Include="Mile.Samples.StaticLibraryForDriver.cpp" />
   </ItemGroup>
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Cpp.targets" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.targets" />
 </Project>
