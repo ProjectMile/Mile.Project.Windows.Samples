@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CCDC358C-7AE9-4546-BC6B-C3EACE5EF5F3}</ProjectGuid>
+    <RootNamespace>Mile.Samples.CoreWindowApplication</RootNamespace>
+    <MileProjectType>WindowsApplication</MileProjectType>
+    <MileProjectManifestFile>Mile.Samples.CoreWindowApplication.manifest</MileProjectManifestFile>
+    <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
+    <MileProjectUseProjectProperties>true</MileProjectUseProjectProperties>
+    <MileProjectCompanyName>Project Mile</MileProjectCompanyName>
+    <MileProjectFileDescription>Mile.Samples.CoreWindowApplication</MileProjectFileDescription>
+    <MileProjectInternalName>Mile.Samples.CoreWindowApplication</MileProjectInternalName>
+    <MileProjectLegalCopyright>© Project Mile. All rights reserved.</MileProjectLegalCopyright>
+    <MileProjectOriginalFilename>Mile.Samples.CoreWindowApplication.exe</MileProjectOriginalFilename>
+    <MileProjectProductName>Mile.Samples.CoreWindowApplication</MileProjectProductName>
+    <MileProjectVersion>1.0.0.0</MileProjectVersion>
+    <MileProjectVersionTag Condition="false">Alpha 1</MileProjectVersionTag>
+  </PropertyGroup>
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Platform.x86.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Platform.x64.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Platform.ARM64.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.Default.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.props" />
+  <ItemGroup>
+    <ClCompile Include="Mile.Samples.CoreWindowApplication.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="Mile.Samples.CoreWindowApplication.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Mile.Windows.Helpers">
+      <Version>1.0.952</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.targets" />
+</Project>

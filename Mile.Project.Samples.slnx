@@ -6,6 +6,7 @@
   </Configurations>
   <Project Path="Mile.Samples.ClrConsoleApplication/Mile.Samples.ClrConsoleApplication.vcxproj" Id="ff7271b9-1b93-4ca0-ba42-7cbc34b68a4e" />
   <Project Path="Mile.Samples.ConsoleApplication/Mile.Samples.ConsoleApplication.vcxproj" Id="682d7436-7ccb-48b0-8aeb-f98e3939a1b9" />
+  <Project Path="Mile.Samples.CoreWindowApplication/Mile.Samples.CoreWindowApplication.vcxproj" Id="ccdc358c-7ae9-4546-bc6b-c3eace5ef5f3" />
   <Project Path="Mile.Samples.DynamicLibrary/Mile.Samples.DynamicLibrary.vcxproj" Id="d574f328-06da-47ac-9b03-ee01d22c070b" />
   <Project Path="Mile.Samples.KMDFDriver/Mile.Samples.KMDFDriver.vcxproj" Id="8d3eba63-089d-4c4c-b2c5-c6453b01092c">
     <Platform Solution="*|x86" Project="x64" />
