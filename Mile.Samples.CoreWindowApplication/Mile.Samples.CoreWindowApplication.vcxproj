@@ -5,7 +5,6 @@
     <RootNamespace>Mile.Samples.CoreWindowApplication</RootNamespace>
     <MileProjectType>WindowsApplication</MileProjectType>
     <MileProjectManifestFile>Mile.Samples.CoreWindowApplication.manifest</MileProjectManifestFile>
-    <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
     <MileProjectUseProjectProperties>true</MileProjectUseProjectProperties>
     <MileProjectCompanyName>Project Mile</MileProjectCompanyName>
     <MileProjectFileDescription>Mile.Samples.CoreWindowApplication</MileProjectFileDescription>
@@ -21,6 +20,20 @@
   <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Platform.ARM64.props" />
   <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.Default.props" />
   <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>WINRT_NO_SOURCE_LOCATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>runtimeobject.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <RuntimeLibrary Condition="'$(Configuration)' == 'Debug'">MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(Configuration)' == 'Release'">MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Mile.Samples.CoreWindowApplication.cpp" />
   </ItemGroup>
@@ -28,6 +41,9 @@
     <Manifest Include="Mile.Samples.CoreWindowApplication.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Mile.Windows.UniCrt">
+      <Version>1.2.410</Version>
+    </PackageReference>
     <PackageReference Include="Mile.Windows.Helpers">
       <Version>1.0.952</Version>
     </PackageReference>
