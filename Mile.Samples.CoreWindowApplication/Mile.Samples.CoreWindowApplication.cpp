@@ -50,10 +50,10 @@ struct App : winrt::implements<
     winrt::IFrameworkViewSource,
     winrt::IFrameworkView>
 {
-    winrt::CompositionTarget m_target{ nullptr };
-    winrt::VisualCollection m_visuals{ nullptr };
-    winrt::Visual m_selected{ nullptr };
-    winrt::float2 m_offset{};
+    winrt::CompositionTarget m_Target = nullptr;
+    winrt::VisualCollection m_Visuals = nullptr;
+    winrt::Visual m_Selected = nullptr;
+    winrt::float2 m_Offset = {};
 
     winrt::IFrameworkView CreateView()
     {
@@ -80,24 +80,25 @@ struct App : winrt::implements<
         window.Activate();
 
         winrt::CoreDispatcher dispatcher = window.Dispatcher();
-        dispatcher.ProcessEvents(winrt::CoreProcessEventsOption::ProcessUntilQuit);
+        dispatcher.ProcessEvents(
+            winrt::CoreProcessEventsOption::ProcessUntilQuit);
     }
 
     void SetWindow(
         winrt::CoreWindow const& window)
     {
-        winrt::Compositor compositor;
-        winrt::ContainerVisual root = compositor.CreateContainerVisual();
-        m_target = compositor.CreateTargetForCurrentView();
-        m_target.Root(root);
-        m_visuals = root.Children();
+        winrt::Compositor Compositor;
+        winrt::ContainerVisual Root = Compositor.CreateContainerVisual();
+        this->m_Target = Compositor.CreateTargetForCurrentView();
+        this->m_Target.Root(Root);
+        this->m_Visuals = Root.Children();
 
         window.PointerPressed({ this, &App::OnPointerPressed });
         window.PointerMoved({ this, &App::OnPointerMoved });
 
         window.PointerReleased([&](auto && ...)
         {
-            m_selected = nullptr;
+            this->m_Selected = nullptr;
         });
     }
 
@@ -105,32 +106,32 @@ struct App : winrt::implements<
         winrt::IInspectable const&,
         winrt::PointerEventArgs const& args)
     {
-        winrt::float2 const point = args.CurrentPoint().Position();
+        winrt::float2 const Point = args.CurrentPoint().Position();
 
-        for (winrt::Visual visual : m_visuals)
+        for (winrt::Visual Visual : this->m_Visuals)
         {
-            winrt::float3 const offset = visual.Offset();
-            winrt::float2 const size = visual.Size();
+            winrt::float3 const Offset = Visual.Offset();
+            winrt::float2 const Size = Visual.Size();
 
-            if (point.x >= offset.x &&
-                point.x < offset.x + size.x &&
-                point.y >= offset.y &&
-                point.y < offset.y + size.y)
+            if (Point.x >= Offset.x &&
+                Point.x < Offset.x + Size.x &&
+                Point.y >= Offset.y &&
+                Point.y < Offset.y + Size.y)
             {
-                m_selected = visual;
-                m_offset.x = offset.x - point.x;
-                m_offset.y = offset.y - point.y;
+                this->m_Selected = Visual;
+                this->m_Offset.x = Offset.x - Point.x;
+                this->m_Offset.y = Offset.y - Point.y;
             }
         }
 
-        if (m_selected)
+        if (this->m_Selected)
         {
-            m_visuals.Remove(m_selected);
-            m_visuals.InsertAtTop(m_selected);
+            this->m_Visuals.Remove(this->m_Selected);
+            this->m_Visuals.InsertAtTop(this->m_Selected);
         }
         else
         {
-            AddVisual(point);
+            this->AddVisual(Point);
         }
     }
 
@@ -138,26 +139,24 @@ struct App : winrt::implements<
         winrt::IInspectable const&,
         winrt::PointerEventArgs const& args)
     {
-        if (m_selected)
+        if (this->m_Selected)
         {
-            winrt::float2 const point = args.CurrentPoint().Position();
+            winrt::float2 const Point = args.CurrentPoint().Position();
 
-            m_selected.Offset(
-                {
-                    point.x + m_offset.x,
-                    point.y + m_offset.y,
-                    0.0f
-                });
+            this->m_Selected.Offset(winrt::float3(
+                Point.x + this->m_Offset.x,
+                Point.y + this->m_Offset.y,
+                0.0f));
         }
     }
 
     void AddVisual(
         winrt::float2 const point)
     {
-        winrt::Compositor compositor = m_visuals.Compositor();
-        winrt::SpriteVisual visual = compositor.CreateSpriteVisual();
+        winrt::Compositor Compositor = this->m_Visuals.Compositor();
+        winrt::SpriteVisual Visual = Compositor.CreateSpriteVisual();
 
-        static winrt::Color colors[] =
+        static winrt::Color Colors[] =
         {
             { 0xDC, 0x5B, 0x9B, 0xD5 },
             { 0xDC, 0xED, 0x7D, 0x31 },
@@ -165,30 +164,24 @@ struct App : winrt::implements<
             { 0xDC, 0xFF, 0xC0, 0x00 }
         };
 
-        static unsigned last = 0;
-        unsigned const next = ++last % _countof(colors);
-        visual.Brush(compositor.CreateColorBrush(colors[next]));
+        static unsigned Last = 0;
+        unsigned const Next = ++Last % _countof(Colors);
+        Visual.Brush(Compositor.CreateColorBrush(Colors[Next]));
 
         float const BlockSize = 100.0f;
 
-        visual.Size(
-            {
-                BlockSize,
-                BlockSize
-            });
+        Visual.Size(winrt::float2(BlockSize));
 
-        visual.Offset(
-            {
-                point.x - BlockSize / 2.0f,
-                point.y - BlockSize / 2.0f,
-                0.0f,
-            });
+        Visual.Offset(winrt::float3(
+            point.x - BlockSize / 2.0f,
+            point.y - BlockSize / 2.0f,
+            0.0f));
 
-        m_visuals.InsertAtTop(visual);
+        this->m_Visuals.InsertAtTop(Visual);
 
-        m_selected = visual;
-        m_offset.x = -BlockSize / 2.0f;
-        m_offset.y = -BlockSize / 2.0f;
+        this->m_Selected = Visual;
+        this->m_Offset.x = -BlockSize / 2.0f;
+        this->m_Offset.y = -BlockSize / 2.0f;
     }
 };
 
