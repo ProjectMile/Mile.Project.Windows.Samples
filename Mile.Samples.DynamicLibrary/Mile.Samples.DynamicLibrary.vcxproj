@@ -35,10 +35,5 @@
   <ItemGroup>
     <Manifest Include="Mile.Samples.DynamicLibrary.manifest" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Mile.Windows.Helpers">
-      <Version>1.0.1171</Version>
-    </PackageReference>
-  </ItemGroup>
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Cpp.targets" />
 </Project>
