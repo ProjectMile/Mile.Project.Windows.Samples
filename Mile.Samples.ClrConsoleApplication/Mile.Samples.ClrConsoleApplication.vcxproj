@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FF7271B9-1B93-4CA0-BA42-7CBC34B68A4E}</ProjectGuid>
@@ -14,7 +14,6 @@
     <MileProjectProductName>Mile.Samples.ClrConsoleApplication</MileProjectProductName>
     <MileProjectVersion>1.0.0.0</MileProjectVersion>
     <MileProjectVersionTag Condition="false">Alpha 1</MileProjectVersionTag>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Platform.x86.props" />
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Platform.x64.props" />
@@ -22,6 +21,9 @@
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
     <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Label="NuGet" Condition="('$(MSBuildProjectExtension)' == '.vcxproj') Or ('$(MSBuildProjectExtension)' == '.wapproj')">
     <TargetFrameworkMoniker>.NETFramework, Version=$(TargetFrameworkVersion)</TargetFrameworkMoniker>
