@@ -5,7 +5,6 @@
     <RootNamespace>Mile.Samples.DynamicLibrary</RootNamespace>
     <MileProjectType>DynamicLibrary</MileProjectType>
     <MileProjectManifestFile>Mile.Samples.DynamicLibrary.manifest</MileProjectManifestFile>
-    <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
     <MileProjectUseProjectProperties>true</MileProjectUseProjectProperties>
     <MileProjectCompanyName>Project Mile</MileProjectCompanyName>
     <MileProjectFileDescription>Mile.Samples.DynamicLibrary</MileProjectFileDescription>
@@ -22,6 +21,12 @@
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Cpp.Default.props" />
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Cpp.props" />
   <ItemDefinitionGroup>
+    <ClCompile>
+      <RuntimeLibrary Condition="'$(UseDebugLibraries)' == 'true'">MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(UseDebugLibraries)' != 'true'">MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
     <Link>
       <ModuleDefinitionFile>Mile.Samples.DynamicLibrary.def</ModuleDefinitionFile>
     </Link>
@@ -34,6 +39,11 @@
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="Mile.Samples.DynamicLibrary.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="VC-LTL">
+      <Version>5.3.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Cpp.targets" />
 </Project>

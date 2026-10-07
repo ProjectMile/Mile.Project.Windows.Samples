@@ -5,7 +5,6 @@
     <RootNamespace>Mile.Samples.ConsoleApplication</RootNamespace>
     <MileProjectType>ConsoleApplication</MileProjectType>
     <MileProjectManifestFile>Mile.Samples.ConsoleApplication.manifest</MileProjectManifestFile>
-    <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
     <MileProjectUseProjectProperties>true</MileProjectUseProjectProperties>
     <MileProjectCompanyName>Project Mile</MileProjectCompanyName>
     <MileProjectFileDescription>Mile.Samples.ConsoleApplication</MileProjectFileDescription>
@@ -21,11 +20,22 @@
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Platform.ARM64.props" />
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Cpp.Default.props" />
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <RuntimeLibrary Condition="'$(UseDebugLibraries)' == 'true'">MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(UseDebugLibraries)' != 'true'">MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Mile.Samples.ConsoleApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="Mile.Samples.ConsoleApplication.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="VC-LTL">
+      <Version>5.3.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Cpp.targets" />
 </Project>
